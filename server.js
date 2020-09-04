@@ -62,6 +62,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// serves images
+app.use(express.static('public'));
+app.use("/images", express.static("/images"));
+
 app.get('/', checkAuthenticated, async (req, res) => {
     const articles = await Article.find().sort({
         createdAt: 'desc'

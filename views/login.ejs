@@ -4,7 +4,13 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            /* background-color: black; */
+            background-color: #283673;
+        }
+        
+        .img-container {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
         }
 
         * {
@@ -17,6 +23,7 @@
             background-color: white;
             width: fit-content;
             margin: auto;
+            border-radius: 1rem;
         }
 
         /* Full-width input fields */
@@ -73,7 +80,12 @@
         }
     </style>
 </head>
-<body>    
+<body>
+<div class="img-container">
+<a href="https://skillcurves.com/" target="_blank">
+    <img src="./images/skill_curves_Original_on_Transparent.png" alt="SkillCurves Logo" width="200rem" height="auto"/>
+</a>
+</div>
 <form action="/login" method="POST">
     <div class="container">
         <h1>Login</h1>
@@ -87,7 +99,7 @@
 
         <hr>
         <button type="submit" class="registerbtn">Login</button>
-        <h3>
+        <h3 style="color: red">
         <% if (messages.error) { %> 
             <%= messages.error %> 
         <% } %> 
