@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Blog</title>
+    <title>Skill Curves Blog</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Blog Articles</h1>
-        <form action="/logout?_method=DELETE" method="POST" class="d-inline">
-            <button type="submit" class="btn btn-danger">Logout</button>
+        
+        <h1 class="mb-4">Skill Curves Blog Articles</h1>
+        <form action="/logout?_method=DELETE" method="POST" class="d-inline float-right">
+            <button type="submit" class="btn btn-outline-danger">Logout</button>
         </form>
         <a href="/articles/new" class="btn btn-success">New Article</a>
         <!-- changed here-->
@@ -27,7 +28,7 @@
                     </div>
                     <a href="/articles/<%= article.slug %> " class="btn btn-primary">Read More</a>
                     <a href="/articles/edit/<%= article.id %> " class="btn btn-info">Edit</a>
-                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline float-right">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>            

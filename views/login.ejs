@@ -73,10 +73,7 @@
         }
     </style>
 </head>
-<body>
-    <% if (messages.error) { %> 
-        <%= messages.error %> 
-    <% } %> 
+<body>    
 <form action="/login" method="POST">
     <div class="container">
         <h1>Login</h1>
@@ -90,7 +87,11 @@
 
         <hr>
         <button type="submit" class="registerbtn">Login</button>
-
+        <h3>
+        <% if (messages.error) { %> 
+            <%= messages.error %> 
+        <% } %> 
+        </h3>
         <div class="container signin">
             <p>Sign up? <a href="/register">Register</a>.</p>
         </div>

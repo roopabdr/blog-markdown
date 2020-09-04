@@ -18,10 +18,17 @@ const cors = require('cors');
 const users = [];
 async function initUsers (req, res, next) {
     if (req.body !== null) {
-        // console.log('users database', req.body.email);
-        const oneUser = await User.findOne({email : req.body.email})
-        await users.push(oneUser);
-        console.log('users database users', users);
+        const oneUser = await User.findOne({email : req.body.email});
+        if (oneUser == null) {
+            users.push({
+                id: '',
+                email: '',
+                password: ''
+            });
+            console.log('oneUser is null ',oneUser, users);
+        } else {
+            await users.push(oneUser);
+        }
     }
     next();
 };
@@ -35,7 +42,7 @@ initializePassport(
 
 const app = express();
 
-mongoose.connect('mongodb+srv://admin:Wz0OY2jP5aUkger8@skill-curves-dev.hli7v.mongodb.net/blog?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -120,4 +127,4 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
-app.listen(5000);
+app.listen(process.env.PORT || 5000);
